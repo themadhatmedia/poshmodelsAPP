@@ -41,6 +41,43 @@ class _ModelDetailState extends State<ModelDetail> {
           shrinkWrap: true,
           physics: ScrollPhysics(),
           children: [
+            Container(
+              width: double.infinity,
+              height: 60.0,
+              color: Colors.black45,
+              child: Center(
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.white,
+                        size: 30.0,
+                      ),
+                      onPressed: () {
+                        Get.back();
+                      },
+                    ),
+                    Spacer(),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 1.2,
+                      child: Text(
+                        widget.model['post_title'],
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 25.0,
+                        ),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                      ),
+                    ),
+                    Spacer(),
+                  ],
+                ),
+              ),
+            ),
             Hero(
               tag: '${widget.from}-${widget.model['post_id']}',
               child: CarouselSlider.builder(
@@ -76,24 +113,6 @@ class _ModelDetailState extends State<ModelDetail> {
                   enableInfiniteScroll: true,
                   enlargeCenterPage: true,
                   viewportFraction: 1.0,
-                ),
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 60.0,
-              color: Colors.black45,
-              child: Center(
-                child: Text(
-                  widget.model['post_title'],
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 25.0,
-                  ),
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
                 ),
               ),
             ),

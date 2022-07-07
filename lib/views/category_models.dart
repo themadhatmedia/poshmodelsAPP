@@ -212,14 +212,30 @@ class _CategoryModelsState extends State<CategoryModels> {
                 bottom: 20.0,
               ),
               child: Center(
-                child: Text(
-                  widget.categoryName,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 33.0,
-                  ),
-                  textAlign: TextAlign.center,
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.white,
+                        size: 30.0,
+                      ),
+                      onPressed: () {
+                        Get.back();
+                      },
+                    ),
+                    Spacer(),
+                    Text(
+                      widget.categoryName,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 33.0,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Spacer(),
+                  ],
                 ),
               ),
             ),
